@@ -1,0 +1,153 @@
+<div class="container">
+  <div class="jambotron">
+
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+      <div class="row">
+
+        <label for="type" class="col-sm-1 col-form-label">Type</label>
+        <div class="form-group  col-md-8 ">
+          <select class="form-control" aria-hidden="true" formControlName="type"
+                  required>
+            <option *ngFor="let i of elements">{{i}}  </option>
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <label for="type" class="col-sm-1 form-check-label checkbox-lg">Private</label>
+        <div class="form-check col-md-8">
+          <input type="checkbox" class="form-check-input" formControlName="priv">
+        </div>
+      </div>
+
+
+      <div class="row">
+        <label for="type" class="col-sm-1 form-check-label ">Drink</label>
+        <div>
+          <div class="custom-control custom-radio">
+            <input type="radio"
+                   id="customRadio1"
+                   class="custom-control-input"
+                   formControlName="drink"
+                   value="Coffee" />
+            <label class="custom-control-label" for="customRadio1">Coffee</label>
+          </div>
+
+          <div class="  custom-control custom-radio">
+            <input type="radio"
+                   id="customRadio2"
+                   class="custom-control-input"
+                   formControlName="drink"
+                   value="Tea" />
+            <label class="  custom-control-label" for="customRadio2">Tea</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="type" class="col-sm-1 col-form-label">Title</label>
+        <div class="form-group col-md-8  ">
+            <input type="text" class="form-control " name="title"
+                 formControlName="title" />
+            <div *ngIf="formdata.controls['title'].errors && !formdata.controls['title'].pristine" class="error-msg">
+              <div [hidden]="!formdata.controls['title'].errors.required">Title is required.</div>
+              <p *ngIf="formdata.controls['title'].errors.maxlength">Title must be 5 characters long</p>
+            </div>
+        </div>
+       </div>
+      
+
+
+          <div class="row">
+            <label for="type" class="col-sm-1 col-form-label">Date</label>
+            <div class="form-group col-md-8  ">
+              <input type="date" class="form-control"
+                     formControlName="date"
+                     required />
+            </div>
+          </div>
+
+
+          <div class="row">
+            <label for="type" class="col-sm-1 col-form-label">UploadFile</label>
+            <div class="form-group col-md-8 ">
+              <input type="file" formControlName="uploadfile" />
+            </div>
+          </div>
+          <button type="submit" name="button" class="btn btn-success" value="id" >Add user</button>
+</form>
+  </div>
+</div>
+
+<p>{{formdata.value | json}}</p>
+<p>Form status: {{ formdata.status | json }}</p>
+
+
+<!--
+<div class="container">
+  <form>
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-0 col-form-label">Email</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+      </div>
+  </form>
+</div>
+
+    <label class="form-check-label">
+            <span class="custom-control-indicator"></span>
+            <span for="private">Private:</span>
+
+          </label>
+    <div class="row">
+        <label for="type" class="col-sm-1 col-form-label">AssignTo</label>
+        <div class="form-group col-md-8  ">
+          <select class="form-control" aria-hidden="true">
+            <option class="form-group"></option>
+            <option class="form-group"></option>
+            <option class="form-group"></option>
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <label for="type" class="col-sm-1 col-form-label">Priority</label>
+        <div class="form-group col-md-8 ">
+          <select class="form-control" aria-hidden="true">
+            <option class="form-group">None</option>
+            <option class="form-group">Low</option>
+            <option class="form-group">High</option>
+            <option class="form-group">Urgent</option>
+            <option class="form-group">Immediate</option>
+          </select>
+        </div>
+      </div>
+
+
+     <div class="row">
+        <label for="type" class="col-sm-1 col-form-label">Location</label>
+        <div class="form-group col-md-8  ">
+          <input type="text" class="form-control" name="email" ngModel
+                 #locationUser="ngModel"
+                 required />
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <label for="type" class="col-sm-1 col-form-label">Trade</label>
+        <div class="form-group col-md-8 ">
+          <select class="form-control" aria-hidden="true">
+            <option class="form-group"></option>
+            <option class="form-group"></option>
+            <option class="form-group"></option>
+          </select>
+        </div>
+      </div>
+  -->
